@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея - Моя фотоколлекция</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    <span>WebDev<span class="logo-accent">Studio</span></span>
+                </a>
+            </div>
+            <nav class="flex-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Галерея</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="gallery-page">
+        <h1 class="page-title"><i class="fas fa-images"></i> Фотогалерея</h1>
+        
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="nature">Природа</button>
+            <button class="filter-btn" data-filter="city">Город</button>
+            <button class="filter-btn" data-filter="animals">Животные</button>
+        </div>
+        
+        <!-- CSS Grid галерея (из ПР3) -->
+        <div class="gallery-grid" id="galleryContainer">
+            <!-- Карточки динамически загружаются через JS -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Алексей Иванов</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Простая инициализация галереи (если script.js не содержит данных)
+        if (typeof imagesData === 'undefined') {
+            console.log('Загружаем демо-галерею');
+        }
+    </script>
+</body>
+</html>
