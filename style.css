@@ -1,0 +1,689 @@
+/* ============================================
+   ПРАКТИЧЕСКАЯ РАБОТА №5: FLEXBOX
+   Гибкие макеты, навигация, карточки, формы
+   ============================================ */
+
+/* ----- ГЛОБАЛЬНЫЕ НАСТРОЙКИ ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* border-box для всех элементов */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+    color: #1e2a3e;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----- ШАПКА С FLEXBOX НАВИГАЦИЕЙ ----- */
+.site-header {
+    background: linear-gradient(135deg, #1e4462, #2c5f8a);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Логотип */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.logo a:hover {
+    transform: scale(1.02);
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #ffd966;
+}
+
+.logo-accent {
+    color: #ffd966;
+}
+
+/* Flexbox навигация */
+.flex-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 40px;
+    transition: all 0.25s;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Псевдокласс :hover для навигации */
+.nav-link:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav-link.active {
+    background: white;
+    color: #1e4462;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Бургер-меню (для мобильных) */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+/* ----- ОСНОВНОЙ КОНТЕНТ ГЛАВНОЙ ----- */
+.home-main {
+    flex: 1;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: #1e4462;
+    margin-bottom: 15px;
+}
+
+.hero-tech {
+    color: #2c5f8a;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #2c5f8a, #1e4462);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(44,95,138,0.3);
+}
+
+/* Flexbox для карточек возможностей */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: #2c5f8a;
+    margin-bottom: 15px;
+}
+
+/* ----- СТРАНИЦА КОНТАКТОВ (FLEXBOX ДЛЯ КАРТОЧКИ И ФОРМЫ) ----- */
+.contacts-main {
+    flex: 1;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contacts-wrapper {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Информационная карточка (Flexbox) */
+.info-card-flex {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.info-card-flex:hover {
+    transform: translateY(-5px);
+}
+
+.card-avatar i {
+    font-size: 85px;
+    color: #2c5f8a;
+    margin-bottom: 15px;
+}
+
+.specialty {
+    color: #5a6e7c;
+    margin: 10px 0 20px;
+}
+
+.contact-info-flex {
+    text-align: left;
+    margin: 25px 0;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.contact-row i {
+    width: 28px;
+    color: #2c5f8a;
+}
+
+/* Социальные сети (Flexbox) */
+.social-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-link {
+    padding: 8px 18px;
+    background: #f0f4f8;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-link.telegram:hover {
+    background: #0088cc;
+    color: white;
+    transform: scale(1.03);
+}
+.social-link.vk:hover {
+    background: #4a76a8;
+    color: white;
+}
+.social-link.github:hover {
+    background: #333;
+    color: white;
+}
+.social-link.instagram:hover {
+    background: #d62976;
+    color: white;
+}
+
+/* Форма обратной связи (Flexbox) */
+.form-card-flex {
+    flex: 1.5;
+    min-width: 320px;
+    background: white;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.form-card-flex h2 {
+    color: #1e4462;
+    margin-bottom: 8px;
+}
+
+.form-desc {
+    color: #6c7a89;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 15px;
+}
+
+/* Flex форма */
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.half {
+    min-width: 180px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.required {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.25s;
+    font-family: inherit;
+}
+
+/* Псевдоклассы для полей формы */
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: #90b4ce;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2c5f8a;
+    box-shadow: 0 0 0 4px rgba(44,95,138,0.15);
+}
+
+/* :required поля */
+.form-group input:required,
+.form-group textarea:required {
+    border-left: 4px solid #f39c12;
+}
+
+.form-group input:required:valid,
+.form-group textarea:required:valid {
+    border-left-color: #27ae60;
+}
+
+/* ::placeholder стилизация */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b9c3ce;
+    font-style: italic;
+}
+
+.form-group input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Чекбокс */
+.checkbox-flex {
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: 18px;
+    height: 18px;
+}
+
+/* Псевдокласс :checked для чекбокса */
+.checkbox-label input:checked + span {
+    color: #2c5f8a;
+    font-weight: 500;
+}
+
+.submit-flex-btn {
+    background: linear-gradient(135deg, #2c5f8a, #1e4462);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.25s;
+}
+
+.submit-flex-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(44,95,138,0.35);
+}
+
+/* Дополнительные блоки (Flexbox) */
+.extra-flex-section {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.work-time-flex,
+.faq-flex,
+.guide-flex {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: transform 0.25s;
+}
+
+.work-time-flex:hover,
+.faq-flex:hover,
+.guide-flex:hover {
+    transform: translateY(-4px);
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+/* Псевдокласс :nth-child для чередования */
+.time-row:nth-child(even) {
+    background: #f9fbfd;
+    padding-left: 8px;
+    border-radius: 10px;
+}
+
+.faq-item-flex {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.faq-q {
+    font-weight: 700;
+    color: #2c5f8a;
+    cursor: pointer;
+}
+
+.faq-a {
+    font-size: 0.9rem;
+    color: #4a5b6e;
+    margin-top: 6px;
+    padding-left: 15px;
+}
+
+.guide-flex .step-flex {
+    padding: 10px 0;
+    border-bottom: 1px solid #eef2f7;
+}
+
+.urgent {
+    background: #fff3e0;
+    padding: 12px;
+    border-radius: 18px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Псевдоэлементы */
+.faq-q::before {
+    content: "📌";
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.required::after {
+    content: " (обязательно)";
+    font-size: 0.7rem;
+    font-weight: normal;
+}
+
+::selection {
+    background: #f39c12;
+    color: #1e2a3e;
+}
+
+/* ----- СТРАНИЦА ГАЛЕРЕИ ----- */
+.gallery-page {
+    flex: 1;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #1e4462;
+    margin-bottom: 30px;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    background: white;
+    border: 2px solid #cbd5e1;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #2c5f8a;
+    color: white;
+    border-color: #2c5f8a;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* ----- ПОДВАЛ ----- */
+.site-footer {
+    background: #1e2a36;
+    color: #d1dce6;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+/* ----- АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) ----- */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 12px 20px;
+    }
+    
+    .flex-nav {
+        position: relative;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #1e4462;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .nav-menu.active {
+        max-height: 300px;
+        opacity: 1;
+        padding: 20px 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: block;
+        border-radius: 0;
+        background: transparent;
+    }
+    
+    .burger {
+        display: flex;
+    }
+    
+    .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .contacts-wrapper {
+        flex-direction: column;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .features {
+        flex-direction: column;
+    }
+    
+    .extra-flex-section {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 1.2rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        padding: 30px 15px;
+    }
+    
+    .form-card-flex,
+    .info-card-flex {
+        padding: 20px;
+    }
+}
