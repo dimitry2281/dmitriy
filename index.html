@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ШАПКА С FLEXBOX НАВИГАЦИЕЙ -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    <span>WebDev<span class="logo-accent">Studio</span></span>
+                </a>
+            </div>
+            
+            <!-- Горизонтальное меню (Flexbox) -->
+            <nav class="flex-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Главная</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Бургер-меню для мобильных (CSS-only) -->
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="home-main">
+        <section class="hero">
+            <h1>Добро пожаловать!</h1>
+            <p>Сайт, созданный с использованием современных технологий</p>
+            <p class="hero-tech">HTML5 + CSS3 (Flexbox, Grid) + JavaScript</p>
+            <a href="contacts.html" class="hero-btn">Связаться со мной</a>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-css3-alt"></i>
+                <h3>Flexbox</h3>
+                <p>Гибкая навигация и адаптивные макеты</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-th-large"></i>
+                <h3>CSS Grid</h3>
+                <p>Сетка для галереи изображений</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Адаптивность</h3>
+                <p>Корректное отображение на любых устройствах</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Алексей Иванов. Все права защищены.</p>
+        <p class="footer-tech">Сайт работает на Flexbox + Grid</p>
+    </footer>
+
+    <!-- Скрипт для бургер-меню -->
+    <script>
+        const burger = document.querySelector('.burger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
