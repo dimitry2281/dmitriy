@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Свяжитесь со мной</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    <span>WebDev<span class="logo-accent">Studio</span></span>
+                </a>
+            </div>
+            <nav class="flex-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="contacts.html" class="nav-link active">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="contacts-main">
+        <div class="contacts-wrapper">
+            
+            <!-- ИНФОРМАЦИОННАЯ КАРТОЧКА (FLEXBOX) -->
+            <div class="info-card-flex">
+                <div class="card-avatar">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <h2>Алексей Иванов</h2>
+                <p class="specialty">🌐 Full-stack разработчик | Фотограф</p>
+                
+                <div class="contact-info-flex">
+                    <div class="contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:alexey@example.com">alexey@example.com</a>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Москва, Россия</span>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-clock"></i>
+                        <span>Online: 10:00 - 19:00 MSK</span>
+                    </div>
+                </div>
+                
+                <div class="social-flex">
+                    <a href="#" class="social-link telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="#" class="social-link vk"><i class="fab fa-vk"></i> VK</a>
+                    <a href="#" class="social-link github"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+            
+            <!-- ФОРМА ОБРАТНОЙ СВЯЗИ (FLEXBOX ВНУТРИ) -->
+            <div class="form-card-flex">
+                <h2><i class="fas fa-paper-plane"></i> Написать сообщение</h2>
+                <p class="form-desc">Заполните форму, и я отвечу в ближайшее время</p>
+                
+                <form id="contactFlexForm" class="flex-form">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Ваше имя <span class="required">*</span></label>
+                            <input type="text" name="name" placeholder="Иван Петров" required>
+                        </div>
+                        <div class="form-group half">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" name="email" placeholder="ivan@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Тема сообщения</label>
+                        <select name="subject">
+                            <option>📝 Вопрос по сайту</option>
+                            <option>🤝 Сотрудничество</option>
+                            <option>💬 Отзыв</option>
+                            <option>🔘 Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Сообщение <span class="required">*</span></label>
+                        <textarea rows="5" placeholder="Напишите ваш вопрос..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-flex">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>Я согласен на обработку персональных данных</span>
+                            <span class="required">*</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-flex-btn">
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- ДОПОЛНИТЕЛЬНЫЕ БЛОКИ (FLEXBOX ДЛЯ РАСПОЛОЖЕНИЯ) -->
+        <div class="extra-flex-section">
+            <div class="work-time-flex">
+                <h3><i class="fas fa-calendar-week"></i> График работы</h3>
+                <div class="time-row"><span>Пн-Пт:</span><strong>10:00 – 19:00</strong></div>
+                <div class="time-row"><span>Сб:</span><strong>12:00 – 16:00</strong></div>
+                <div class="time-row"><span>Вс:</span><strong>Выходной</strong></div>
+            </div>
+            
+            <div class="faq-flex">
+                <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+                <div class="faq-item-flex">
+                    <div class="faq-q">Как быстро вы отвечаете?</div>
+                    <div class="faq-a">Обычно в течение 2-4 часов в рабочие дни.</div>
+                </div>
+                <div class="faq-item-flex">
+                    <div class="faq-q">Берёте ли заказы?</div>
+                    <div class="faq-a">Да, открыт для фриланса. Пишите на почту.</div>
+                </div>
+                <div class="faq-item-flex">
+                    <div class="faq-q">Можно ли скачать фото?</div>
+                    <div class="faq-a">Для личного использования — да, с указанием авторства.</div>
+                </div>
+            </div>
+            
+            <div class="guide-flex">
+                <h3><i class="fas fa-compass"></i> Инструкция</h3>
+                <div class="step-flex">1. Заполните форму выше</div>
+                <div class="step-flex">2. Дождитесь подтверждения на email</div>
+                <div class="step-flex">3. Я свяжусь с вами в течение дня</div>
+                <div class="urgent">⚡ Срочный вопрос: Telegram @alexey_dev</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Алексей Иванов | Сайт на Flexbox</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactFlexForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Сообщение отправлено (демонстрация Flexbox-формы).');
+        });
+        
+        // Бургер-меню
+        const burger = document.querySelector('.burger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (burger) {
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
